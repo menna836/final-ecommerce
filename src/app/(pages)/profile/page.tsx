@@ -31,7 +31,7 @@ export default function Profile() {
   const [showNew, setShowNew] = useState(false);
   const [showRe, setShowRe] = useState(false);
 
-  const token = (data as any)?.token;
+  const token = data?.token;
 
   async function handleChangePassword(e: React.FormEvent) {
     e.preventDefault();
@@ -49,7 +49,7 @@ export default function Profile() {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            token,
+             token: token || "", 
           },
           body: JSON.stringify({
             currentPassword,
@@ -107,7 +107,7 @@ export default function Profile() {
           </div>
           <div>
             <p className="text-sm text-gray-500">Role</p>
-            <p className="font-medium">{(user as any)?.role || "User"}</p>
+            <p className="font-medium">{user?.role || "User"}</p>
           </div>
           <div>
             <Link href={"/allorders"}>

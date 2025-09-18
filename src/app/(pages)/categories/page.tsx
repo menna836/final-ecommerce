@@ -54,7 +54,7 @@ export default function Categories() {
             <div key={category._id} className="border p-4 rounded shadow">
               <div className="relative w-20 h-20 mx-auto">
                 <Image
-                  src={category.image}
+                  src={category.image!}
                   alt={category.name}
                   fill
                   className="object-contain"

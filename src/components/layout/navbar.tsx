@@ -13,14 +13,14 @@ import {
 import { cn } from "@/lib/utils";
 import React, { useContext, useState } from "react";
 import { CartContext } from "@/contexts/cartContext";
-import { useSelector } from "react-redux";
+
 import { signOut, useSession } from "next-auth/react";
 
 export  function Navbar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const{ cartCount ,isLoading} =useContext(CartContext)
-  const {count}=useSelector((state:any) => state.counter)
+ 
   const {data , status} = useSession()
     
 

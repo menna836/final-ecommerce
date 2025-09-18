@@ -1,4 +1,4 @@
-import { IAddToCartResponce, IGetUserCartResponce, IOrder, RegisterData, WishlistResponse} from "@/interfaces";
+import { IAddToCartResponce, IGetUserCartResponce, IOrder, RegisterData, RegisterResponse, WishlistResponse} from "@/interfaces";
 import { BrandsResponse, CategoriesResponse, ProductsResponse, SingleProductResponse } from "@/types";
 import { getSession } from "next-auth/react";
 
@@ -199,7 +199,7 @@ async getHeaders() {
     ).then((res) => res.json());
     }
     
-    async register(name:string,email:string,password:string,rePassword:string,phone:string):Promise<RegisterData>{
+    async register(name:string,email:string,password:string,rePassword:string,phone:string):Promise<RegisterResponse>{
         return await fetch(
         this.#baseUrl + "api/v1/auth/signup",
         {

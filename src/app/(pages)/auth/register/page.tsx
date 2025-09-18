@@ -68,11 +68,23 @@ export default function Register() {
         toast.error("Registration failed: " + (res.message || "Unknown error"))
       }
 
-    } catch (error: any) {
-      setTimeout(()=>{
-        toast.error("Error: " + error.message)
-      },5000)
-    } finally {
+    }
+    //  catch (error:any) {
+    //   setTimeout(()=>{
+    //     toast.error("Error: " + error.message)
+    //   },5000)
+    // } 
+    catch (error: unknown) {
+  setTimeout(() => {
+    if (error instanceof Error) {
+      toast.error("Error: " + error.message);
+    } else {
+      toast.error("An unknown error occurred");
+    }
+  }, 5000);
+}
+
+    finally {
       setIsLoading(false)
     }
   }

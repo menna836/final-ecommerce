@@ -211,17 +211,8 @@ const { data: session } = useSession()
      
      </div>
      <div className=" flex gap-4 p-2">
-        {/* Add to Cart Button */}
-        {/* <Button className="w-full" size="sm"
-        // onClick={handleAddToCart}
-        //  disabled={product.quantity === 0 || addToCartLoading}
-         >
-           { addToCartLoading && <Loader2 className=" animate-spin"/>} 
-          <ShoppingCart className="h-4 w-4 mr-2" />
-          Add to Cart
-        </Button> */}
-         <AddToCartButton  productQuantity={product.quantity}  addToCartLoading={addToCartLoading} handleAddToCart={handleAddToCart}/>
-          <AddToWishList productId={product._id} />
+        <AddToCartButton  productQuentity={product.quantity}  addToCartLoading={addToCartLoading} handleAddToCart={handleAddToCart}/>
+        <AddToWishList productId={product._id} />
      </div>
       
       </div>

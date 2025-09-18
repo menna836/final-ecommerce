@@ -1,40 +1,13 @@
-
-// import { apiServices } from '@/services/api'
-// import React from 'react'
-// import InnerCart from './InnerCart';
-
-// export default async function Cartpage() {
-  
-
-//   async function fetchCart(){
-//     const response = await apiServices.getUserCart();
-  
-//     return response
-//   }
-//   const response = await fetchCart();
-// //   response.data.products[0].product.category
-// // console.log(response)
-
-//   return (
-//     <>
-//       <div className="container mx-auto px-4 py-8">
-//         <InnerCart CartData={response}/>
-//       </div>
-//     </>
-      
-//   )
-// }
-
 "use client"
-
 import { apiServices } from '@/services/api'
 import React, { useEffect, useState } from 'react'
 import InnerCart from './InnerCart'
 import { LoadingSpinner } from '@/components/shared'
 import { Button } from '@/components/ui'
+import { IGetUserCartResponce } from '@/interfaces'
 
 export default function Cartpage() {
-  const [cartData, setCartData] = useState<any>(null)
+  const [cartData, setCartData] = useState<IGetUserCartResponce | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null);
 
@@ -63,7 +36,9 @@ export default function Cartpage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <InnerCart CartData={cartData}/>
+      {cartData ? <InnerCart CartData={cartData} /> : null}
+
+     {/* <InnerCart CartData={cartData}/> */}
     </div>
   )
 }

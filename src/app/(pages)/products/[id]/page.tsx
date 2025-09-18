@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { Product } from "@/interfaces";
 import { Button } from "@/components/ui/button";
 import { LoadingSpinner } from "@/components/shared/LoadingSpinner";
-import { ShoppingCart, Heart, Truck, Shield, RotateCcw, Loader, Loader2 } from "lucide-react";
+import { Truck, Shield, RotateCcw} from "lucide-react";
 import Link from "next/link";
 import { renderStars } from "@/helpers/rating";
 import { SingleProductResponse } from "@/types";
@@ -74,12 +74,6 @@ async function handleAddToCart(){
     );
   }
 
-
-  //   return new Intl.NumberFormat("en-US", {
-  //     style: "currency",
-  //     currency: "USD",
-  //   }).format(price);
-  // };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -196,10 +190,7 @@ async function handleAddToCart(){
 
           {/* Action Buttons */}
           <div className="flex gap-4">
-            <AddToCartButton  productQuantity={product.quantity}  addToCartLoading={addToCartLoading} handleAddToCart={handleAddToCart}/>
-            {/* <Button variant="outline" size="lg">
-              <Heart className="h-5 w-5" />
-            </Button> */}
+            <AddToCartButton  productQuentity={product.quantity}  addToCartLoading={addToCartLoading} handleAddToCart={handleAddToCart}/>
             <AddToWishList productId={product._id} />
           </div>
 
