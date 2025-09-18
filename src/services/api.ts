@@ -1,4 +1,4 @@
-import { IAddToCartResponce, IGetUserCartResponce, IOrder, RegisterData} from "@/interfaces";
+import { IAddToCartResponce, IGetUserCartResponce, IOrder, RegisterData, WishlistResponse} from "@/interfaces";
 import { BrandsResponse, CategoriesResponse, ProductsResponse, SingleProductResponse } from "@/types";
 import { getSession } from "next-auth/react";
 
@@ -76,7 +76,7 @@ async getHeaders() {
 
 
 
-    async deleteSpacificItem(productId:string):Promise<any>{
+    async deleteSpacificItem(productId:string):Promise<unknown>{
         return await fetch(
         this.#baseUrl +"api/v1/cart/" + productId,{
             method:"delete",
@@ -85,7 +85,7 @@ async getHeaders() {
         .then(res => res.json())
     }
     
-    async clearCart():Promise<any>{
+    async clearCart():Promise<unknown>{
         return await fetch(
         this.#baseUrl +"api/v1/cart/",{
             method:"delete",
@@ -94,7 +94,7 @@ async getHeaders() {
         .then(res => res.json())
     }
 
-    async updateCart(productId:string,count:number):Promise<any>  { 
+    async updateCart(productId:string,count:number):Promise<unknown>  { 
         return await fetch(
             this.#baseUrl + "api/v1/cart/"+productId ,{
                 method:"put",
@@ -138,7 +138,7 @@ async getHeaders() {
         this.#baseUrl + "api/v1/orders/user/" + userId,
         {
         method: "get",
-        // headers: this.#getHeaders(), // مش محتاجه هنا لو مش مطلوب
+      
         }
     ).then((res) => res.json());
     }
@@ -153,18 +153,18 @@ async getHeaders() {
     }
 
 
-    async addProductToWishlist(productId: string): Promise<any> {
+    async addProductToWishlist(productId: string): Promise<unknown> {
     return await fetch(
         this.#baseUrl + "api/v1/wishlist",
         {
-        method: "POST",
+        method: "post",
         body: JSON.stringify({ productId }),
         headers: await this.getHeaders(),
         }
     ).then((res) => res.json());
     }
 
-    async getProductWishlist(): Promise<any> {
+    async getProductWishlist(): Promise<WishlistResponse> {
     return await fetch(
         this.#baseUrl + "api/v1/wishlist",
         {
@@ -174,7 +174,7 @@ async getHeaders() {
     ).then((res) => res.json());
     }
 
-    async removeProductFromWishlist(productId: string): Promise<any> {
+    async removeProductFromWishlist(productId: string): Promise<unknown> {
     return await fetch(
         this.#baseUrl + "api/v1/wishlist/"+productId,
         {
@@ -184,7 +184,7 @@ async getHeaders() {
     ).then((res) => res.json());
     }
 
-    async login(email:string,password:string):Promise<any>{
+    async login(email:string,password:string):Promise<unknown>{
         return await fetch(
         this.#baseUrl + "api/v1/auth/signin",
         {
@@ -199,7 +199,7 @@ async getHeaders() {
     ).then((res) => res.json());
     }
     
-    async register(name:string,email:string,password:string,rePassword:string,phone:string):Promise<any>{
+    async register(name:string,email:string,password:string,rePassword:string,phone:string):Promise<RegisterData>{
         return await fetch(
         this.#baseUrl + "api/v1/auth/signup",
         {

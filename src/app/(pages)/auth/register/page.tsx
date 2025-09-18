@@ -41,8 +41,9 @@ export default function Register() {
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false);
   const [showRePassword, setShowRePassword] = useState(false);
+  type RegisterFormValues = z.infer<typeof schema>;
 
-  async function onSubmit(values:any) {
+  async function onSubmit(values:RegisterFormValues) {
     try {
       setIsLoading(true)
 

@@ -36,8 +36,8 @@ export default function Login() {
     const callbackUrl = searchParams.get("callbackUrl") || "/";
     const [showPassword, setShowPassword] = useState(false);
     const router =useRouter()
-
-      async function onSubmit(values:any){
+type LoginFormValues = z.infer<typeof formSchema>;
+      async function onSubmit(values:LoginFormValues){
         try{
             setisloading(true)
             const response= await signIn("credentials",{

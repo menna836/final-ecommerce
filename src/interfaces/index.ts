@@ -8,3 +8,4 @@ export * from './product';
 export * from './cart'
 export * from './order'
 export * from "./register"
+export * from "./whishlist"
