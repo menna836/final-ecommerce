@@ -1,12 +1,22 @@
-interface User {
+
+export interface RegisterData {
   name: string;
   email: string;
-  role: "user" | "admin"; // حسب الـ roles الممكنة
+  password: string;
+  rePassword: string;
+  phone: string;
 }
 
+
+
  export interface RegisterResponse {
-  message: string;
-  user: User;
-  token: string;
+status: string;       
+  message: string;      
+  user?: {
+    name: string;
+    email: string;
+    role: string;
+  };
+  token?: string;      
 }
 

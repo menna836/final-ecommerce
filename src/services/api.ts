@@ -1,4 +1,5 @@
 import { IAddToCartResponce, IGetUserCartResponce, IOrder, RegisterData, RegisterResponse, WishlistResponse} from "@/interfaces";
+import { AuthResponse } from "@/interfaces/login";
 import { BrandsResponse, CategoriesResponse, ProductsResponse, SingleProductResponse } from "@/types";
 import { getSession } from "next-auth/react";
 
@@ -184,7 +185,7 @@ async getHeaders() {
     ).then((res) => res.json());
     }
 
-    async login(email:string,password:string):Promise<unknown>{
+    async login(email:string,password:string):Promise<AuthResponse>{
         return await fetch(
         this.#baseUrl + "api/v1/auth/signin",
         {

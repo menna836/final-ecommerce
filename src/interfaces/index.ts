@@ -9,3 +9,4 @@ export * from './cart'
 export * from './order'
 export * from "./register"
 export * from "./whishlist"
+export * from "./login"
